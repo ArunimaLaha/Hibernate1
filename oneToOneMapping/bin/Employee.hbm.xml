@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+          "src/hibernate-mapping-3.0.dtd">
+ 
+         <hibernate-mapping>
+         <class name="com.pack.Employee" table="Employee700">
+         <id name="id">
+         <generator class="increment"></generator>
+         </id>
+         <property name="name" type="java.lang.String" column="Emp_Name" not-null="true" length="25"></property>
+         <one-to-one name="address" class="com.pack.Address" property-ref="empid" cascade="all"></one-to-one>
+         </class>
+         <class name="com.pack.Address" table="Address">
+         <id name="id">
+         <generator class="native"/>
+         </id>
+         <property name="address"/>
+         <property name="country"/>
+         <property name="empid"/>
+         </class>
+         </hibernate-mapping>
